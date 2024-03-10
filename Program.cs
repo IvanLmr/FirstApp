@@ -1,22 +1,32 @@
-﻿namespace _3
+﻿using System.Security.Cryptography;
+
+namespace _3
 {
     internal class Program
     {
-        static void Main(string[])
+        public static void Main(string[] args)
         {
-            string MyName = "Ivan";
-            Console.WriteLine("My name is " + MyName);
-            byte Age = 27;
-            Console.WriteLine("My Age " + Age);
-            bool Pet = true;
-            Console.WriteLine("Do you have a pet? " + Pet);
-            double MyShoe = 43.0;
-            Console.WriteLine("My shoe is size " + MyShoe);
+            Console.Write("Введите имя: ");
+            var name = Console.ReadLine();
             
-            
-            
+            Console.Write("Введите возраст: ");
+            var age = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ваше имя {0}, ваш возраст {1}", name, age);
+            Console.Write("Введите дату рождения: ");
+            var birthdate = Console.ReadLine();
+            Console.WriteLine("Ваша дата рождения {0}", birthdate);
 
-
+            Console.ReadKey();
         }
+         
+
+            
+     
     }
-}
+}  
+ 
+
+
+
+
+        
