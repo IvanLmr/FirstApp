@@ -1,46 +1,36 @@
-﻿using System.Security.Cryptography;
+﻿using System.Globalization;
+using System.Net.Cache;
+using System.Security.Cryptography;
 
 namespace _3
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+            Console.WriteLine("Напишите что-то");
 
-            var color = Console.ReadLine();
-
-            if (color == "red")
-            {
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is red!");
-            }
-
-            else if (color == "green")
-            {
-                Console.BackgroundColor = ConsoleColor.Green;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is green!");
-            }
-            else
-            {
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is cyan!");
-            }
-            Console.ReadKey();
+            var str = Console.ReadLine();
+            Console.WriteLine("Укажите глубину эха");
+            var deep = int.Parse(Console.ReadLine());
+           
+            Echo(str, deep);
         }
-         
-
-            
-     
+        static void Echo(string saidword, int deep)
+        {
+            var modif = saidword;
+            if (modif.Length > 2)
+            {
+                modif = modif.Remove(0, 2);
+                Console.WriteLine("..." + modif);
+            }
+            if (deep > 1)
+            {
+                Echo(modif, deep - 1);
+            }
+        }
     }
-}  
- 
+}
 
 
 
